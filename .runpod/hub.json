@@ -1,0 +1,22 @@
+{
+  "title": "Irodori TTS 500M v3",
+  "description": "RunPod Serverless worker for Japanese text-to-speech powered by Irodori TTS 500M v3.",
+  "type": "serverless",
+  "category": "audio",
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 30,
+    "gpuCount": 1,
+    "gpuIds": "AMPERE_16,AMPERE_24,ADA_24",
+    "allowedCudaVersions": ["12.8"],
+    "env": [
+      { "key": "MODEL_DEVICE", "value": "cuda" },
+      { "key": "CODEC_DEVICE", "value": "cuda" },
+      { "key": "MODEL_PRECISION", "value": "bf16" },
+      { "key": "CODEC_PRECISION", "value": "bf16" },
+      { "key": "NUM_STEPS", "value": "16" },
+      { "key": "MODEL_TTL", "value": "300" },
+      { "key": "MODEL_LOAD_TIMEOUT", "value": "600" }
+    ]
+  }
+}

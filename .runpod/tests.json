@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "name": "synthesize_short_japanese_text",
+      "input": {
+        "input": "こんにちは",
+        "voice": "none",
+        "response_format": "wav",
+        "irodori": {
+          "num_steps": 16,
+          "seed": 42
+        }
+      },
+      "timeout": 600000
+    }
+  ],
+  "config": {
+    "gpuTypeId": "NVIDIA RTX A4000",
+    "gpuCount": 1,
+    "env": [
+      { "key": "MODEL_DEVICE", "value": "cuda" },
+      { "key": "CODEC_DEVICE", "value": "cuda" },
+      { "key": "MODEL_PRECISION", "value": "bf16" },
+      { "key": "CODEC_PRECISION", "value": "bf16" },
+      { "key": "NUM_STEPS", "value": "16" },
+      { "key": "MODEL_LOAD_TIMEOUT", "value": "600" }
+    ],
+    "allowedCudaVersions": ["12.8"]
+  }
+}
